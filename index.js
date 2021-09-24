@@ -1,24 +1,7 @@
 const { Server } = require("socket.io");
 const port = 3000;
 const { pingTarget } = require("./ping.js");
-const targets = [{
-    ip: "10.229.33.39",
-    client: {
-        name: "PC1", status: null
-    }
-},
-{
-    ip: "10.229.33.37",
-    client: {
-        name: "PC2", status: null
-    }
-},
-{
-    ip: "10.229.33.31",
-    client: {
-        name: "PC3", status: null
-    }
-}]
+const targets = require("./targets.json")
 
 
 const io = new Server(port, {
@@ -47,4 +30,4 @@ var t = setInterval(() => {
         })
     })
 
-}, 3000);
+}, 500);
