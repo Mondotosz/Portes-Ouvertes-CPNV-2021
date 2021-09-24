@@ -28,9 +28,9 @@
 		}
 	},
 	{
-		"ip": "10.229.60.22",
+		"ip": "10.229.33.129",
 		"client": {
-			"name": "DNS",
+			"name": "PC09",
 			"status": null
 		}
 	},
@@ -80,6 +80,34 @@
 		"ip": "10.229.32.156",
 		"client": {
 			"name": "Luke",
+			"status": null
+		}
+	},
+	{
+		"ip": "10.229.33.241",
+		"client": {
+			"name": "Simon",
+			"status": null
+		}
+	},
+	{
+		"ip": "10.229.33.34",
+		"client": {
+			"name": "Yann",
+			"status": null
+		}
+	},
+	{
+		"ip": "10.229.32.176",
+		"client": {
+			"name": "Sven",
+			"status": null
+		}
+	},
+	{
+		"ip": "10.229.33.33",
+		"client": {
+			"name": "Tiago",
 			"status": null
 		}
 	}
