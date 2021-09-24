@@ -1,11 +1,13 @@
 document.addEventListener("alpine:init", () => {
 
-    Alpine.store('clients',{
-        clients : [],
-        add(client){
-            this.clients.push(client)
+    Alpine.store('clients', {
+        clients: [],
+        add(newClient) {
+            if (this.clients.map(client => client.name).indexOf(newClient.name) == -1) {
+                this.clients.push(newClient)
+            }
         },
-        update(updatedClient){
+        update(updatedClient) {
             this.clients[this.clients.map(client => client.name).indexOf(updatedClient.name)] = updatedClient;
         }
     })
@@ -14,11 +16,11 @@ document.addEventListener("alpine:init", () => {
     Alpine.data('connection', (client) => ({
         client: client,
         connected: null,
-        init(){
-            if(client){
-                setInterval(()=>{
+        init() {
+            if (client) {
+                setInterval(() => {
                     this.connected = Alpine.store('clients').clients[Alpine.store('clients').clients.map(c => c.name).indexOf(this.client.name)].status
-                },500)
+                }, 500)
             }
         },
         get status() {
@@ -34,10 +36,10 @@ document.addEventListener("alpine:init", () => {
 
 const socket = io("http://localhost:3000")
 
-socket.on("new client",(client)=>{
+socket.on("new client", (client) => {
     Alpine.store('clients').add(client)
 })
 
-socket.on("update client",(client)=>{
+socket.on("update client", (client) => {
     Alpine.store('clients').update(client)
 })
