@@ -3,6 +3,26 @@ const port = 3000;
 const { pingTarget } = require("./ping.js");
 const targets = require("./targets.json")
 
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const tl = require('express-tl')
+
+app.engine('tl', tl)
+app.set('views', './views') // specify the views directory
+app.set('view engine', 'tl') // register the template engine
+app.use("/", express.static(__dirname));
+
+app.get('/', (req, res) => {
+    res.render('index',{
+
+    })
+});
+
+server.listen(80, () => {
+  console.log('listening on http://localhost:80');
+});
 
 const io = new Server(port, {
     cors: {
