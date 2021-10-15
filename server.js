@@ -1,6 +1,6 @@
 const http = require('http');
 
-const hostname = '10.229.33.39';
+const hostname = '10.229.33.32';
 const port = 3000;
 
 const { pingTarget } = require("./ping.js");
@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
 
     var t = setInterval(() => {
 
-        promise = pingTarget("10.229.33.31")
+        promise = pingTarget("10.229.33.132")
 
         promise.then((value) => {
             res.end(value.host + " is " + value.alive);
