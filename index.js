@@ -1,5 +1,5 @@
+const config = require("./config.json");
 const { Server } = require("socket.io");
-const port = 3000;
 const { pingTarget } = require("./ping.js");
 const targets = require("./targets.json")
 
@@ -8,8 +8,6 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const tl = require('express-tl')
-const ip = "10.229.33.31"
-const httpPort = 80
 
 app.engine('tl', tl)
 app.set('views', './views') // specify the views directory
@@ -18,16 +16,16 @@ app.use("/", express.static(__dirname));
 
 app.get('/', (req, res) => {
     res.render('index', {
-        ip: ip,
-        port: port
+        ip: config.ip,
+        port: config.ioPort
     })
 });
 
-server.listen(httpPort, () => {
-    console.log(`listening on http://${ip}:${httpPort}`);
+server.listen(config.httpPort, () => {
+    console.log(`listening on http://${config.ip}:${config.httpPort}`);
 });
 
-const io = new Server(port, {
+const io = new Server(config.ioPort, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
