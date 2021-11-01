@@ -33,13 +33,3 @@ document.addEventListener("alpine:init", () => {
         }
     }))
 })
-
-const socket = io("http://localhost:3000")
-
-socket.on("new client", (client) => {
-    Alpine.store('clients').add(client)
-})
-
-socket.on("update client", (client) => {
-    Alpine.store('clients').update(client)
-})
