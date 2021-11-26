@@ -122,6 +122,7 @@
         socket.on("update client", (client) => {
             Alpine.store('clients').update(client)
         })
+
     </script>
 </body>
 

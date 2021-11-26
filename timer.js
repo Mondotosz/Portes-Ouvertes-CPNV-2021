@@ -27,10 +27,11 @@ document.getElementById("startCountdown").addEventListener("click", function(){
     Alpine.store('timer' , 0)
     
 
-    document.getElementById("stopCountdown").addEventListener("click", function(){
+    socket.on("loadForm",()=>{
         clearInterval(interval);
         Alpine.store('showForm',true)
-    });
+    })
+
 });
 
 document.addEventListener('alpine:init', () => {

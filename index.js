@@ -7,7 +7,8 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const tl = require('express-tl')
+const tl = require('express-tl');
+const { connected } = require("process");
 
 app.engine('tl', tl)
 app.set('views', './views') // specify the views directory
@@ -41,14 +42,24 @@ io.on("connection", (socket) => {
 });
 
 var t = setInterval(() => {
+    let connected = true;
 
     targets.forEach(target => {
 
         promise = pingTarget(target.ip)
 
+        
+
         promise.then((value) => {
             io.emit('update client', { name: target.client.name, status: value.alive })
+            if (!value.alive){
+                connected = false
+            }
         })
     })
+
+    if(connected){
+        io.emit('loadForm')
+    }
 
 }, 500);
