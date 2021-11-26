@@ -47,6 +47,7 @@ io.on("connection", (socket) => {
 
 var t = setInterval(() => {
     let connected = true;
+    let promise;
 
     targets.forEach(target => {
 
@@ -62,9 +63,11 @@ var t = setInterval(() => {
         })
     })
 
-    if(connected){
-        io.emit('loadForm')
-    }
+    promise.then((value)=>{        
+        if(connected){
+            io.emit('loadForm')
+        }
+    })
 
 }, 500);
 

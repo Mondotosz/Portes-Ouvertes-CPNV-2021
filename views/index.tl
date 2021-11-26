@@ -32,7 +32,7 @@
                     <div class="flex items-center justify-center mt-5 ">
                         <input class="px-5 bg-gray-200 rounded-md" type="submit" value="Terminer">
                     </div>
-                    <input x-data :value="$store.remainingTime" type="hidden" name="timer"/>
+                    <input x-data :value="$store.remainingTime" type="hidden" name="timer" value="00:00"/>
                 </form>
             </div>
         </div>
