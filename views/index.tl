@@ -26,13 +26,13 @@
                 <div x-text="$store.remainingTime"></div>
                 <form method="get" class="form-example" action="/scoreboard">
                     <label>Nom</label>
-                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="lastname">
+                    <input required class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="lastname">
                     <label>Prénom</label>
-                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="firstname">
+                    <input required class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="firstname">
                     <div class="flex items-center justify-center mt-5 ">
                         <input class="px-5 bg-gray-200 rounded-md" type="submit" value="Terminer">
                     </div>
-                    <input :value="$store.remainingTime" type="hidden" name="timer" value="00:00"/>
+                    <input required :value="$store.remainingTime" type="hidden" name="timer" value="00:00"/>
                 </form>
             </div>
         </div>
