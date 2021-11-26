@@ -9,6 +9,9 @@ document.addEventListener("alpine:init", () => {
         },
         update(updatedClient) {
             this.clients[this.clients.map(client => client.name).indexOf(updatedClient.name)] = updatedClient;
+        },
+        get win(){
+            return (this.clients.length > 0 && this.clients.filter(client => !client.status).length == 0 ) ? true : false
         }
     })
 

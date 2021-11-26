@@ -57,17 +57,9 @@ var t = setInterval(() => {
 
         promise.then((value) => {
             io.emit('update client', { name: target.client.name, status: value.alive })
-            if (!value.alive){
-                connected = false
-            }
         })
     })
 
-    promise.then((value)=>{        
-        if(connected){
-            io.emit('loadForm')
-        }
-    })
 
 }, 500);
 
