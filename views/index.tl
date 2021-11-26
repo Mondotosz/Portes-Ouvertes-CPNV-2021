@@ -23,16 +23,16 @@
             <div id="confetti-holder"
                 class="flex flex-col items-center w-auto px-6 py-4 m-8 border-2 border-gray-500 rounded-lg h-72">
                 <bold class="font-bold">Bravo, vous avez sauvé l'infrastructure ! </bold><br>
-                <div id="restTimer"></div>
+                <div x-text="$store.remainingTime"></div>
                 <form method="get" class="form-example" action="/scoreboard">
                     <label>Nom</label>
-                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="lastname">
+                    <input required class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="lastname">
                     <label>Prénom</label>
-                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="firstname">
+                    <input required class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="firstname">
                     <div class="flex items-center justify-center mt-5 ">
                         <input class="px-5 bg-gray-200 rounded-md" type="submit" value="Terminer">
                     </div>
-                    <input x-data :value="$store.remainingTime" type="hidden" name="timer"/>
+                    <input required :value="$store.remainingTime" type="hidden" name="timer" value="00:00"/>
                 </form>
             </div>
         </div>
@@ -98,13 +98,13 @@
                     </div>
                 </div>
             </button>
-            <button @click="form = ! form" id="stopCountdown" class="p-1">
+            <!-- <button @click="form = ! form" id="stopCountdown" class="p-1">
                 <div x-show="!open && !$store.showForm" x-transition>
                     <div class="flex items-center px-6 py-2 space-x-6 bg-gray-200 rounded-md">
                         <div class="text-4xl font-semibold align-middle select-none">Arreter</div>
                     </div>
                 </div>
-            </button>
+            </button> -->
         </div>
     </div>
     <script src="node_modules/socket.io-client/dist/socket.io.min.js"></script>
@@ -122,6 +122,7 @@
         socket.on("update client", (client) => {
             Alpine.store('clients').update(client)
         })
+
     </script>
 </body>
 
