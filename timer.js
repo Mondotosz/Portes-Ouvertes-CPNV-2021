@@ -22,6 +22,7 @@ document.getElementById("startCountdown").addEventListener("click", function(){
         restMinutes = restMinutes < 10 ? "0" + restMinutes : restMinutes
         restSecondes = restSecondes < 10 ? "0" + restSecondes : restSecondes
         restTimerElement.innerText = `${restMinutes}:${restSecondes}`
+        Alpine.store('remainingTime', `${restMinutes}:${restSecondes}`)
         Alpine.store('restTimer', Math.floor(600 - temps))
     }, 1000)
     Alpine.store('timer' , 0)

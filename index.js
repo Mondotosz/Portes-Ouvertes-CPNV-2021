@@ -8,6 +8,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const tl = require('express-tl')
+const fs = require('fs');
 
 app.engine('tl', tl)
 app.set('views', './views') // specify the views directory
@@ -52,3 +53,26 @@ var t = setInterval(() => {
     })
 
 }, 500);
+
+app.get('/scoreboard', (req, res) => {
+
+    const user = {
+        "firstname" : req.query.firstname,
+        "lastname" : req.query.lastname,
+        "timer" : req.query?.timer
+    }
+
+    let scoreboard = JSON.parse(fs.readFileSync("scoreboard.json", "utf-8"));
+    scoreboard.push(user)
+    const data = JSON.stringify(scoreboard);
+
+    fs.writeFile('scoreboard.json', data, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("JSON data is saved.");
+    });
+
+    res.send("This shoud be the scoreboard page!")
+});
+

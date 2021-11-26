@@ -1,5 +1,5 @@
 {
-	"ip": "10.229.33.31",
-	"httpPort": 80,
+	"ip": "localhost",
+	"httpPort": 8000,
 	"ioPort": 3000
 }
