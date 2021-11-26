@@ -24,15 +24,15 @@
                 class="flex flex-col items-center w-auto px-6 py-4 m-8 border-2 border-gray-500 rounded-lg h-72">
                 <bold class="font-bold">Bravo, vous avez sauvé l'infrastructure ! </bold><br>
                 <div id="restTimer"></div>
-                <form method="get" class="form-example">
+                <form method="get" class="form-example" action="/scoreboard">
                     <label>Nom</label>
-                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="name">
+                    <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="lastname">
                     <label>Prénom</label>
                     <input class="w-full p-1 border-2 border-gray-400 rounded-md" type="text" name="firstname">
                     <div class="flex items-center justify-center mt-5 ">
                         <input class="px-5 bg-gray-200 rounded-md" type="submit" value="Terminer">
                     </div>
-
+                    <input x-data :value="$store.remainingTime" type="hidden" name="timer"/>
                 </form>
             </div>
         </div>
