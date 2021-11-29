@@ -65,23 +65,29 @@ var t = setInterval(() => {
 
 app.get('/scoreboard', (req, res) => {
 
-    const user = {
-        "firstname" : req.query.firstname,
-        "lastname" : req.query.lastname,
-        "timer" : req.query?.timer
-    }
-
     let scoreboard = JSON.parse(fs.readFileSync("scoreboard.json", "utf-8"));
-    scoreboard.push(user)
-    const data = JSON.stringify(scoreboard);
+    if(Object.keys(req.query).length > 0) {
 
-    fs.writeFile('scoreboard.json', data, (err) => {
-        if (err) {
-            throw err;
+        const user = {
+            "firstname" : req.query.firstname,
+            "lastname" : req.query.lastname,
+            "timer" : req.query?.timer
         }
-        console.log("JSON data is saved.");
-    });
+        scoreboard.push(user)
+        const data = JSON.stringify(scoreboard);
+    
+        fs.writeFile('scoreboard.json', data, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("JSON data is saved.");
+        });
+    }    
 
-    res.send("This shoud be the scoreboard page!")
+    
+    res.render('scoreboard', {
+        scoreboard: scoreboard
+
+    })
 });
 

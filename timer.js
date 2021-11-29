@@ -26,10 +26,17 @@ document.getElementById("startCountdown").addEventListener("click", function () 
             clearInterval(interval);
             Alpine.store('showForm', true)
         }
+
+        document.getElementById("stopCountdown").addEventListener("click", function () {
+            clearInterval(interval);
+            Alpine.store('showForm', true)
+        })
     }, 1000)
     Alpine.store('timer', 0)
 
 });
+
+
 
 document.addEventListener('alpine:init', () => {
     Alpine.store('timer', 0)

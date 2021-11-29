@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,8 +10,9 @@
 </head>
 
 <body class="flex flex-col items-center justify-center min-h-screen px-12">
+    <a href="/scoreboard" class="fixed px-6 py-3 bg-blue-200 rounded-md top-10 left-10 hover:bg-blue-500 hover:text-white">Scoreboard</a>
     <div x-data="{form : false}" x-transition:leave.duration.500ms x-transition:leave.origin.bottom>
-        <div x-show="!$store.showForm" class="grid grid-cols-4 gap-6">
+        <div x-show="!$store.showForm" class="grid grid-cols-3 gap-6 mb-6">
             <template x-for="client in $store.clients.clients">
                 <div x-data="connection(client)" class="flex items-center px-6 py-2 space-x-6 bg-gray-100 rounded-md">
                     <div x-bind:class="status" class="w-8 h-8 rounded-full"></div>
@@ -98,13 +99,13 @@
                     </div>
                 </div>
             </button>
-            <!-- <button @click="form = ! form" id="stopCountdown" class="p-1">
+            <!-- --> <button disabled @click="form = ! form" id="stopCountdown" class="p-1">
                 <div x-show="!open && !$store.showForm" x-transition>
                     <div class="flex items-center px-6 py-2 space-x-6 bg-gray-200 rounded-md">
                         <div class="text-4xl font-semibold align-middle select-none">Arreter</div>
                     </div>
                 </div>
-            </button> -->
+            </button> 
         </div>
     </div>
     <script src="node_modules/socket.io-client/dist/socket.io.min.js"></script>

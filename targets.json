@@ -1,113 +1,36 @@
 [
 	{
-		"ip": "10.229.33.26",
+		"ip": "192.168.14.23",
 		"client": {
-			"name": "Loik",
+			"name": "PC1",
 			"status": null
 		}
 	},
 	{
-		"ip": "10.229.32.132",
+		"ip": "192.168.14.33",
 		"client": {
-			"name": "Cyprien",
+			"name": "PC2",
+			"status": null
+		}
+	},
+{
+		"ip": "192.168.14.13",
+		"client": {
+			"name": "PC3",
 			"status": null
 		}
 	},
 	{
-		"ip": "10.229.33.39",
+		"ip": "192.168.14.3",
 		"client": {
-			"name": "Benjamin",
+			"name": "Serveur 1",
 			"status": null
 		}
 	},
 	{
-		"ip": "10.229.33.31",
+		"ip": "192.168.14.4",
 		"client": {
-			"name": "Kenan",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.32.222",
-		"client": {
-			"name": "PC09",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.32",
-		"client": {
-			"name": "Mathias",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.23",
-		"client": {
-			"name": "Yoann",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.36",
-		"client": {
-			"name": "Pedro",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.32.157",
-		"client": {
-			"name": "Jared",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.25",
-		"client": {
-			"name": "Axel",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.34.44",
-		"client": {
-			"name": "Gabriel",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.32.156",
-		"client": {
-			"name": "Luke",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.241",
-		"client": {
-			"name": "Simon",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.34",
-		"client": {
-			"name": "Yann",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.32.176",
-		"client": {
-			"name": "Sven",
-			"status": null
-		}
-	},
-	{
-		"ip": "10.229.33.33",
-		"client": {
-			"name": "Tiago",
+			"name": "Serveur 2",
 			"status": null
 		}
 	}
